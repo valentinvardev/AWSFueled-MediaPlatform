@@ -1,0 +1,36 @@
+# Next.js app — tiene su propio repo (media-seller-platform)
+fotografo/
+
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+fotografo/.next/
+fotografo/out/
+fotografo/next-env.d.ts
+
+# build outputs
+fotografo/build/
+lambda/dist/
+lambda/function.zip
+
+# env files - NEVER commit these
+.env
+.env.local
+.env*.local
+fotografo/.env
+fotografo/.env.local
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# prisma generated
+fotografo/generated/
+
+# IDE
+.idea/
+.vscode/

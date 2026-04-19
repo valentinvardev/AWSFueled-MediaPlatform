@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Collection {
+  id String @id
+}
+
+model Photo {
+  id           String       @id @default(cuid())
+  collectionId String
+  bibNumber    String?
+  storageKey   String
+  filename     String
+  fileSize     Int?
+  width        Int?
+  height       Int?
+  order        Int          @default(0)
+  previewKey   String?
+  createdAt    DateTime     @default(now())
+  collection   Collection   @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  faceRecords  FaceRecord[]
+
+  @@index([collectionId])
+}
+
+model FaceRecord {
+  id           String   @id @default(cuid())
+  rekFaceId    String   @unique
+  photoId      String
+  collectionId String
+  confidence   Float?
+  createdAt    DateTime @default(now())
+  photo        Photo    @relation(fields: [photoId], references: [id], onDelete: Cascade)
+
+  @@index([collectionId])
+  @@index([photoId])
+}
