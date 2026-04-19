@@ -1,5 +1,12 @@
-# Next.js app — tiene su propio repo (media-seller-platform)
+# Next.js app del cliente anterior — tiene su propio repo
 fotografo/
+
+# Next.js build outputs
+app/.next/
+app/out/
+app/next-env.d.ts
+app/node_modules/
+app/generated/
 
 # dependencies
 node_modules/
